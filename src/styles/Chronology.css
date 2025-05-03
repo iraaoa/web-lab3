@@ -1,0 +1,264 @@
+#timeline {
+    padding: 70px 0;
+    background-color: #ffffff;
+    margin-top: 0px;
+
+}
+
+.sect-name {
+    margin-top: 0px;
+    color: #333;
+    font-weight: bold;
+    font-size: 32px;
+    text-align: center;
+    padding-bottom: 5px;
+}
+
+.text {
+    margin: 30px 140px;
+    font-size: 20px;
+}
+
+
+.hronologia {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 90px;
+    min-height: 160px;
+    align-items: flex-start;
+    overflow: hidden; /* Сховуємо зайві події, які не вміщаються */
+    transition: transform 0.9s ease-in-out; /* Плавне зміщення */
+}
+
+.event {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 14px;
+    padding: 15px;
+    padding-bottom: 1px;
+    width: 200px;
+    min-height: 125px;
+    box-shadow: 0 2px 5px rgba(61, 59, 59, 0.2);
+    border-radius: 30px;
+    transform: scale(1);
+    transition: transform 0.7s ease;
+    text-align: center;
+}
+
+
+
+.more-info {
+    display: block;
+    margin-top: 10px;
+    color: #007bff;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.year {
+    padding: 5px;
+    color: rgb(71, 30, 11);
+    font-weight: bold;
+    border-bottom: 2px solid;
+    width: 100%;
+    text-align: center;
+}
+
+.event p {
+    flex-grow: 1;
+    margin-bottom: 0px;
+}
+
+
+.more-info {
+    display: none;
+    cursor: pointer;
+}
+
+.event:hover .more-info {
+    display: block;
+    font-size: 12px;
+    color: rgb(84, 38, 21);
+    text-align: center;
+    padding-bottom: 15px;
+    padding-top: 1px;
+    text-decoration: none;
+
+}
+
+
+.event:hover {
+    transform: scale(1.1);
+    box-shadow: 0 2px 5px rgba(202, 31, 31, 0.3);
+
+}
+
+.timeline-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0px;
+    padding: 0 140px;
+}
+
+button{
+    background-color: #ffffff;
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 50px;
+}
+
+
+
+.buttoon {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+#toggle-timeline:hover{
+    background-color: #efebeb;
+}
+
+
+
+
+
+/* Стиль для затемнення фону */
+.modal {
+    position: fixed;
+    z-index: 1000; /* Щоб було поверх усіх елементів */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Напівпрозорий чорний фон */
+}
+
+/* Контент модального вікна */
+.modal-content {
+    background-color: #f4f4f9;
+    margin: 10% auto;
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+
+/* Заголовок модального вікна */
+#modalTitle {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Основний текст */
+#modalDetails {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.5;
+}
+
+
+
+.filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 10px;
+    justify-content: center;
+    margin: 40px 0;
+  }
+  
+  .filter-buttons button {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: #eee;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+  
+  .filter-buttons button:hover {
+    background-color: #ccc;
+  }
+  
+  .filter-buttons .active {
+    background-color: #333;
+    color: white;
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+@media (max-width: 768px) {
+
+  
+    .hronologia {
+        flex-direction: column;
+        align-items: center;
+    }
+  
+
+    #timeline {
+        padding: 10px 0px;
+        padding-bottom: 50px;
+    }
+
+    .sect-name {
+        font-size: 22px;
+    }
+
+    .text {
+        margin: 30px 20px;
+    }
+
+    .hronologia {
+        display: flex;
+        flex-direction: column;
+        padding: 0 90px;
+    }
+
+
+}
+
+
+
+
+
+
+
+@media (max-width: 480px) {
+
+    #timeline {
+        padding: 10px 0;
+        padding-bottom: 50px;
+
+    }
+    .hronologia {
+        display: flex;
+        flex-direction: column;
+        padding: 0 30px;
+    }
+
+    .more-info {
+        color: rgb(95, 51, 19);
+    }
+
+}
