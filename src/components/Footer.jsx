@@ -1,5 +1,5 @@
 import React from "react";
-import '../styles/Footer.css'
+import '../styles/Footer.css';
 
 function Footer() {
   return (
@@ -7,7 +7,7 @@ function Footer() {
       <div className="footer-cont">
         <div className="left-c">
           <div className="f-logo">
-            <img src="/images/f-img.png" alt="Логотип" className="f-img" />
+            <img src={`${process.env.PUBLIC_URL}/images/f-img.png`} alt="Логотип" className="f-img" />
             <h2>History studying</h2>
           </div>
           <div>
@@ -31,16 +31,16 @@ function Footer() {
 
         <div className="right-c">
           <a href="https://www.tiktok.com/@lovemymasya2.0?_t=ZM-8uZtG4Jy0e5&_r=1" target="_blank" rel="noopener noreferrer">
-            <img src="/images/tt.png" alt="TikTok" />
+            <img src={`${process.env.PUBLIC_URL}/images/tt.png`} alt="TikTok" />
           </a>
           <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-            <img src="/images/ds.png" alt="Discord" />
+            <img src={`${process.env.PUBLIC_URL}/images/ds.png`} alt="Discord" />
           </a>
           <a href="https://www.instagram.com/irysabat?igsh=MTR2M3B2OTR4ZXlw" target="_blank" rel="noopener noreferrer">
-            <img src="/images/inst.png" alt="Instagram" />
+            <img src={`${process.env.PUBLIC_URL}/images/inst.png`} alt="Instagram" />
           </a>
           <a href="https://www.youtube.com/watch?v=Z-xPjVP7Gz4" target="_blank" rel="noopener noreferrer">
-            <img src="/images/yt.png" alt="YouTube" />
+            <img src={`${process.env.PUBLIC_URL}/images/yt.png`} alt="YouTube" />
           </a>
         </div>
       </div>
