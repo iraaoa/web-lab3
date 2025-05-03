@@ -7,7 +7,7 @@ function Home() {
             <article className="article">
                 <div className="cont">
                     <div className="photo-container">
-                    <img src={`${process.env.PUBLIC_URL}/images/history.jpg`} alt="Логотип" />
+                    <img src={`/web-lab3/images/history.jpg`} alt="Логотип" />
                     </div>
 
                     <div>

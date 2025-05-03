@@ -12,10 +12,10 @@ function App() {
     <Router>
       <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/events" element={<Events />} />
-        <Route path="/chronology" element={<Chronology />} /> 
-        <Route path="/quiz" element={<Quiz />} /> 
+        <Route path="/web-lab3" element={<Home />} />
+        <Route path="/web-lab3/events" element={<Events />} />
+        <Route path="/web-lab3/chronology" element={<Chronology />} /> 
+        <Route path="/web-lab3/quiz" element={<Quiz />} /> 
 
       </Routes>
       <Footer />

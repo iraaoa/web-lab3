@@ -7,7 +7,7 @@ function Header() {
     <header>
       <div className="logoo">
         <Link to="/">
-          <img src={`${process.env.PUBLIC_URL}/images/loggo.png`} alt="Логотип" className="logo-img" />
+          <img src={`/web-lab3/images/loggo.png`} alt="Логотип" className="logo-img" />
         </Link>
         <div className="site-name">
           <Link to="/" style={{ textDecoration: 'none' }}>
@@ -19,7 +19,7 @@ function Header() {
       <nav>
         <ul>
           <li className="menu-item">
-            <img src={`${process.env.PUBLIC_URL}/images/hron.png`} alt="Іконка хронології" className="ikon" />
+            <img src={`/web-lab3/images/hron.png`} alt="Іконка хронології" className="ikon" />
             <Link to="/chronology">Хронологія</Link>
           </li>
           <li className="menu-item">
