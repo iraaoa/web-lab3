@@ -38,7 +38,7 @@ function Events() {
                     <div className="event-card" key={index}>
                         <div className="image-container">
                         <img src={`/web-lab3/images/${event.image}`} alt={event.description} />
-                       </div>
+                        </div>
                         <h3>{event.description}</h3>
                         <hr className="event-line" />
                         <p className="event-description">{event.details}</p>
