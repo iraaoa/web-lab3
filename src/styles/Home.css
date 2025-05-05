@@ -45,7 +45,29 @@
 
 
 
-
+.register-button {
+    background-color:  #724f58; /* темно-зелений */
+    color: white;
+    padding: 14px 28px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.4s ease;
+    margin-top: 70px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .register-button:hover {
+    background-color: #4f2d36;
+    transform: scale(1.05);
+  }
+  
+  .register-button:active {
+    transform: scale(0.98);
+  }
+  
 
 
 

@@ -31,7 +31,11 @@ function Header() {
             <Link to="/web-lab3/quiz">Тестування</Link>
           </li>
           <li className="menu-item">
-            <img src={`/web-lab3/images/home.png`} alt="Іконка головної" className="ikon" />
+            <img src={`/web-lab3/images/account.png`} alt="Іконка головної" className="ikon" />
+            <Link to="/web-lab3/profile">Кабінет</Link>
+          </li>
+          <li className="menu-item">
+            <img src={`/web-lab3/images/home.png`} alt="Іконка кабінету" className="ikon" />
             <Link to="/web-lab3/">Головна</Link>
           </li>
         </ul>

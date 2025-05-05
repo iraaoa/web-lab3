@@ -1,10 +1,31 @@
-import React, { useState } from "react";
-import "../styles/Quiz.css"
+import React, { useEffect, useState } from 'react';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom'; // Не забувай імпортувати useNavigate
+import "../styles/Quiz.css";
 
 function Quiz() {
+  const [loading, setLoading] = useState(true); // Переміщуємо useState на верх
   const [answers, setAnswers] = useState({ q1: "", q2: "" });
   const [result, setResult] = useState(null);
 
+  const auth = getAuth();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (!user) {
+        navigate('/web-lab3/login'); // Редирект на логін, якщо користувач не авторизований
+      } else {
+        setLoading(false); // Все ок, дозволяємо показ сторінки
+      }
+    });
+
+    return () => unsubscribe(); // Очищення слухача
+  }, [auth, navigate]);
+
+  if (loading) {
+    return <p>Перевірка доступу...</p>;
+  }
 
   const handleChange = (e) => {
     setAnswers({
@@ -12,8 +33,6 @@ function Quiz() {
       [e.target.name]: e.target.value,
     });
   };
-  
-
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,7 +41,6 @@ function Quiz() {
     if (answers.q2 === "Kravchuk") score++;
     setResult(`Твій результат: ${score} з 2`);
   };
-
 
   return (
     <section id="test">

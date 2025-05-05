@@ -1,3 +1,4 @@
+
 export const events = [
     {
         year: -5500,
@@ -182,3 +183,4 @@ export const events = [
         image: "/images/2022.jpg"
     }
 ];
+

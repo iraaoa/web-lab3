@@ -1,15 +1,32 @@
-import React, { useState } from "react";
-import "../styles/Events.css"
-import { events } from "../components/EventsData";
-
+import React, { useState, useEffect } from "react";
+import "../styles/Events.css";
+import { db } from "../firebase";
+import { collection, getDocs, query, orderBy } from "firebase/firestore";
 
 function Events() {
+    const [events, setEvents] = useState([]);
     const [currentEventIndex, setCurrentEventIndex] = useState(4);
     const [showLoadMore, setShowLoadMore] = useState(true);
 
     const eventsPerPage = 4;
 
+    useEffect(() => {
+        const fetchEvents = async () => {
+            try {
+                const q = query(collection(db, "events"), orderBy("year", "asc"));
+                const querySnapshot = await getDocs(q);
+                const eventsArray = querySnapshot.docs.map((doc) => ({
+                    id: doc.id,
+                    ...doc.data(),
+                }));
+                setEvents(eventsArray);
+            } catch (error) {
+                console.error("Помилка при завантаженні подій:", error);
+            }
+        };
 
+        fetchEvents();
+    }, []);
 
     const loadMoreEvents = () => {
         const nextIndex = currentEventIndex + eventsPerPage;
@@ -19,15 +36,11 @@ function Events() {
         setCurrentEventIndex(nextIndex);
     };
 
-
-
     const resetEvents = () => {
         setCurrentEventIndex(4);
         setShowLoadMore(true);
     };
 
-
-    
     const currentEvents = events.slice(0, currentEventIndex);
 
     return (
