@@ -1,24 +1,35 @@
 const express = require('express');
 const cors = require('cors');
 const admin = require('firebase-admin');
-const serviceAccount = require('./serviceAccountKey.json');
+
+const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)
 });
 
+
 const db = admin.firestore();
 const app = express();
 
+const allowedOrigins = [
+  'http://localhost:3000',
+  'https://твій_користувач.github.io',  // Заміни на свій фронтенд-URL
+];
 
 const corsOptions = {
-  origin: 'http://localhost:3000',  // Твій фронтенд
+  origin: function(origin, callback) {
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 };
 
 app.use(cors(corsOptions));
-
 app.use(express.json());
 
 app.post('/api/save-result', async (req, res) => {
@@ -43,14 +54,12 @@ app.post('/api/save-result', async (req, res) => {
   }
 });
 
-
-
 app.get('/api/user-average/:userId', async (req, res) => {
   const { userId } = req.params;
 
   try {
     const snapshot = await db.collection('results').where('userId', '==', userId).get();
-    
+
     if (snapshot.empty) {
       return res.json({ average: 0 });
     }
@@ -74,7 +83,8 @@ app.get('/api/user-average/:userId', async (req, res) => {
   }
 });
 
-
-app.listen(5000, () => {
-  console.log('Сервер запущено на порту 5000');
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Server запущено на порті ${PORT}`);
 });
+
