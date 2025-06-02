@@ -14,7 +14,7 @@ const app = express();
 
 const allowedOrigins = [
   'http://localhost:3000',
-  'https://твій_користувач.github.io',  // Заміни на свій фронтенд-URL
+  'https://iraaoa.github.io/web-lab3',  // Заміни на свій фронтенд-URL
 ];
 
 const corsOptions = {
